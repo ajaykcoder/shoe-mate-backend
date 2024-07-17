@@ -29,12 +29,39 @@
       "minLength": 3,
       "maxLength": 100
     },
-    "size": {
+    "price": {
       "type": "integer",
-      "required": true,
-      "min": 6,
-      "max": 10,
-      "private": true
+      "required": true
+    },
+    "isFavorite": {
+      "type": "boolean",
+      "default": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "rating": {
+      "type": "decimal",
+      "max": 5,
+      "min": 1,
+      "default": 1
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

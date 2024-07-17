@@ -391,16 +391,22 @@ export interface ApiProductProduct extends Schema.CollectionType {
         minLength: 3;
         maxLength: 100;
       }>;
-    size: Attribute.Integer &
+    price: Attribute.Integer & Attribute.Required;
+    isFavorite: Attribute.Boolean & Attribute.DefaultTo<false>;
+    isActive: Attribute.Boolean &
       Attribute.Required &
-      Attribute.Private &
+      Attribute.DefaultTo<true>;
+    rating: Attribute.Decimal &
       Attribute.SetMinMax<
         {
-          min: 6;
-          max: 10;
+          min: 1;
+          max: 5;
         },
         number
-      >;
+      > &
+      Attribute.DefaultTo<1>;
+    media: Attribute.Media<'images', true>;
+    image: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
